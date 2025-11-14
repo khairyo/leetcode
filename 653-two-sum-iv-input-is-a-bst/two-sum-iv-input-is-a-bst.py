@@ -8,15 +8,17 @@ class Solution:
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
         if not root:
             return False
-
+        
         d = deque([root])
         s = set()
 
         while d:
             node = d.popleft()
             diff = k - node.val
+
             if diff in s:
                 return True
+            
             else:
                 s.add(node.val)
                 if node.left:
