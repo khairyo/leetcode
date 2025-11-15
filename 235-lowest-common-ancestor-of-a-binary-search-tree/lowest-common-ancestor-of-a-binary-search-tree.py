@@ -15,11 +15,12 @@ class Solution:
         small = min(p.val, q.val)
         large = max(p.val, q.val)
 
-        while root:
-            if root.val > large:
-                root = root.left
-            elif root.val < small:
-                root = root.right
+        d = deque([root])
+        while d:
+            node = d.popleft()
+            if node.val > large:
+                d.append(node.left)
+            elif node.val < small:
+                d.append(node.right)
             else:
-                return root
-        return None
+                return node
