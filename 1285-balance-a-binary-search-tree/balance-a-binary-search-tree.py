@@ -15,13 +15,15 @@ class Solution:
             inorder(node.right)
         inorder(root)
         
-        def build(l, r):
-            if l > r:
+        def build(l,r):
+            if l>r:
                 return
-            mid = (l+r) // 2
+            mid = (l+r)//2
             node = TreeNode(a[mid])
-            node.left = build(l, mid-1)
-            node.right = build(mid+1, r)
+            node.left = build(l,mid-1)
+            node.right = build(mid+1,r)
             return node
         
-        return build(0, len(a)-1)
+        return build(0,len(a)-1)
+
+    
